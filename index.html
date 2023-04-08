@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+body {
+    background-color: white;
+    margin: 0;
+  padding: 0;
+  
+  /* make it look decent enough */
+  background: white;
+  color: black;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+.title {
+    position: absolute;
+    margin-left: 525px;
+    top: 45px;
+}
+
+.background {
+    width: 1395px;
+    height: 225px;
+    margin-top: -50px;
+    background-color: #ededdd;
+}
+
+/*.station-141 {
+  position: absolute;
+  margin-left: 53px;
+  top: 35px;
+  color: white;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 3em;
+  height: 35px;
+  width: 130px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: large;
+  text-decoration: none;
+  text-align:center;
+}*/
+
+.description {
+  margin-left: 425px;
+  position: absolute;
+  top: 250px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 10px;
+  left: 15px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: black;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 175px;
+  height: 668px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+.version {
+  margin-left: 1345px;
+  margin-top: 545px;
+  font-size: 12px;
+}
+
+</style>
+</head>
+<body>
+<h1 class="title">Great beluga games</h1>
+<p class="description">This is the beta version of great begula games. The entire site was <br> coded by me(Prasham Mishra). We have many games to play on!</p>
+<div class="sidebar">
+</div>
+
+<div class="station-141-border"></div>
+<script src="script.js"></script>
+<div class="line1"></div>
+<div class="line2"></div>
+<div class="line3"></div>
+<nav role="navigation">
+    <div id="menuToggle">
+      <!--
+      A fake / hidden checkbox is used as click reciever,
+      so you can use the :checked selector on it.
+      -->
+      <input type="checkbox" />
+      
+      <!--
+      Some spans to act as a hamburger.
+      
+      They are acting like a real hamburger,
+      not that McDonalds stuff.
+      -->
+      <span></span>
+      <span></span>
+      <span></span>
+      
+      <!--
+      Too bad the menu has to be inside of the button
+      but hey, it's pure CSS magic.
+      -->
+      <ul id="menu">
+        <a href="#"><li>Home</li></a>
+        <a href="file:///Users/prasham/SiteRules/index.html#"><li>Rules</li></a>
+        <a href="file:///Users/prasham/SiteGames/index.html#"><li>Games</li></a>
+      </ul>
+    </div>
+  </nav>
+  <div class="background"></div>
+  <p class="version">v1.0</p>
+</body>
+</html>
